@@ -13,6 +13,7 @@ For Creating the Databse
 1. In Visual Studio - navigate to -> Tools -> NuGet Package Manager -> Package Manager Console
 2. In Package Manager Console - For "Default project" property choose "PCConfigurationTool.DataModel" project
 3. In Package Manager Console - Type - Add-Migration InitialMigration
+	3.3 If you get this error: "Exception has been thrown by the target of an invocation." - Run the command above for the second time. 
 4. In Package Manager Console - Type - Update-Database
 
 It should create DB for you populated with some test data.
