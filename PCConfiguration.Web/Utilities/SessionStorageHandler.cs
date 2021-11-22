@@ -7,7 +7,7 @@ namespace PCConfiguration.Web
 {
     public class SessionStorageHandler : ISessionStorageHandler
     {
-        public Cart GetCardFromSessionStorage(ISession session)
+        public Cart GetCartFromSessionStorage(ISession session)
         {
             Cart cart;
             var value = session.GetString(Resources.CART_KEY);
@@ -23,7 +23,7 @@ namespace PCConfiguration.Web
             return cart;
         }
 
-        public void SetCardToSessionStorage(ISession session, Cart cart)
+        public void SetCartToSessionStorage(ISession session, Cart cart)
         {
             session.SetString(Resources.CART_KEY, JsonConvert.SerializeObject(cart));
         }

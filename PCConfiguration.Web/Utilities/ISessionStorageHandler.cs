@@ -5,8 +5,8 @@ namespace PCConfiguration.Web
 {
     public interface ISessionStorageHandler
     {
-        public Cart GetCardFromSessionStorage(ISession session);
+        public Cart GetCartFromSessionStorage(ISession session);
 
-        public void SetCardToSessionStorage(ISession session, Cart cart);
+        public void SetCartToSessionStorage(ISession session, Cart cart);
     }
 }

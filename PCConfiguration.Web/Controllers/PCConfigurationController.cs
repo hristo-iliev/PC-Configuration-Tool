@@ -28,7 +28,7 @@ namespace PCConfiguration.Web.Controllers
         public async Task<IActionResult> PCConfigurationAsync(PartViewModel selectedPart = null)
         {
             _logger.LogInformation("Getting Cart from session or creating new one...");
-            Cart cart = _storageHandler.GetCardFromSessionStorage(HttpContext.Session);
+            Cart cart = _storageHandler.GetCartFromSessionStorage(HttpContext.Session);
 
             _logger.LogInformation("Getting All Parts from database...");
             var items = await _service.GetAllParts();
@@ -40,7 +40,7 @@ namespace PCConfiguration.Web.Controllers
                 _cartService.TogglePart(cart, selectedPart);
 
                 // Set the update Cart to session
-                _storageHandler.SetCardToSessionStorage(HttpContext.Session, cart);
+                _storageHandler.SetCartToSessionStorage(HttpContext.Session, cart);
             }
 
             _logger.LogInformation("Setting up the ViewModel for PC Configuration page...");
@@ -88,17 +88,6 @@ namespace PCConfiguration.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        private Cart HandleSelectedPartInTheSessionStorage(PartViewModel selectedPart)
-        {
-            Cart cart = _storageHandler.GetCardFromSessionStorage(HttpContext.Session);
-
-            _cartService.TogglePart(cart, selectedPart);
-
-            _storageHandler.SetCardToSessionStorage(HttpContext.Session, cart);
-
-            return cart;
         }
     }
 }
