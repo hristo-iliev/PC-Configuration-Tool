@@ -1,0 +1,30 @@
+﻿@using PCConfiguration.Core.Models
+@model IEnumerable<VideoCardViewModel>
+
+@{
+    ViewData["Title"] = "Video Card";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Video Card</h1>
+    <br />
+    <br />
+
+    <table class="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>Name</th>
+            <th>Chipset</th>
+            <th>Memory</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var videoCard in Model)
+        {
+            <tr>
+                <td>@videoCard.Name</td>
+                <td>@videoCard.Chipset</td>
+                <td>@videoCard.Memory GB</td>
+                <td><b>$@videoCard.Price</b></td>
+            </tr>
+        }
+    </table>
+</div>

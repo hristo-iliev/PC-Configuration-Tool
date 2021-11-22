@@ -1,0 +1,30 @@
+﻿@using PCConfiguration.Core.Models
+@model IEnumerable<StorageViewModel>
+
+@{
+    ViewData["Title"] = "Storage";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Storage</h1>
+    <br />
+    <br />
+
+    <table class="center">
+        <tr>
+            <th>Name</th>
+            <th>Cache</th>
+            <th>Capacity</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var storage in Model)
+        {
+            <tr>
+                <td>@storage.Name</td>
+                <td>@(storage.Cache != null ? storage.Cache : "---")</td>
+                <td>@storage.Capacity GB</td>
+                <td><b>$@storage.Price</b></td>
+            </tr>
+        }
+    </table>
+</div>

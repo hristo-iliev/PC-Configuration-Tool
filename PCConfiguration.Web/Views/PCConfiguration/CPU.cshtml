@@ -1,0 +1,32 @@
+﻿@using PCConfiguration.Core.Models
+@model IEnumerable<CPUViewModel>
+
+@{
+    ViewData["Title"] = "CPU";
+}
+
+<div class="text-center">
+    <h1 class="display-4">CPU</h1>
+    <br />
+    <br />
+
+    <table class="center">
+        <tr>
+            <th>Name</th>
+            <th>Core Count</th>
+            <th>Integrated Graphics</th>
+            <th>Performance Core Clock</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var cpu in Model)
+        {
+            <tr>
+                <td>@cpu.Name</td>
+                <td>@cpu.CoreCount</td>
+                <td>@(cpu.IntegratedGraphics != null ? cpu.IntegratedGraphics : "---")</td>
+                <td>@cpu.PerformanceCoreClock</td>
+                <td><b>$@cpu.Price</b></td>
+            </tr>
+        }
+    </table>
+</div>

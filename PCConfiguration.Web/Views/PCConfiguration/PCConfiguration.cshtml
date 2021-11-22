@@ -1,0 +1,137 @@
+﻿@using PCConfiguration.Core.Models
+@model PCConfigurationViewModel
+
+@{
+    ViewData["Title"] = "PC Configuration Tool";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To Our PC Configuration Tool</h1>
+    <h2>Selected parts price: <b>$@Model.Sum</b></h2>
+    <h3>You can select only 1 item per type!</h3>
+    <br />
+    <h2>Select CPU:</h2>
+    @foreach (var part in Model.Parts.Where(p => p.Type == "CPU"))
+    {
+        <div class="part-margin" style="border: 5px solid red; display: inline-block;">
+
+            @if (Model.AllCPUEnabled && !part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">ADD TO CART</a>
+            }
+            else if (!Model.AllCPUEnabled && part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">REMOVE</a>
+            }
+            else
+            {
+                <br />
+            }
+
+
+            <ul>
+                <li>@part.Name</li>
+                <li>@part.Type</li>
+                <li><b>$@part.Price</b></li>
+            </ul>
+        </div>
+    }
+    <br />
+    <h2>Select Motherboard:</h2>
+    @foreach (var part in Model.Parts.Where(p => p.Type == "Motherboard"))
+    {
+        <div class="part-margin" style="border: 5px solid green; display: inline-block; ">
+            @if (Model.AllMotherboardEnabled && !part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">ADD TO CART</a>
+            }
+            else if (!Model.AllMotherboardEnabled && part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">REMOVE</a>
+            }
+            else
+            {
+                <br />
+            }
+            <ul>
+                <li>@part.Name</li>
+                <li>@part.Type</li>
+                <li><b>$@part.Price</b></li>
+            </ul>
+        </div>
+    }
+    <br />
+    <h2>Select RAM:</h2>
+    @foreach (var part in Model.Parts.Where(p => p.Type == "RAM"))
+    {
+        <div class="part-margin" style="border: 5px solid blue; display: inline-block;">
+            @if (Model.AllRAMEnabled && !part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">ADD TO CART</a>
+            }
+            else if (!Model.AllRAMEnabled && part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">REMOVE</a>
+            }
+            else
+            {
+                <br />
+            }
+            <ul>
+                <li>@part.Name</li>
+                <li>@part.Type</li>
+                <li><b>$@part.Price</b></li>
+            </ul>
+        </div>
+    }
+    <br />
+    <h2>Select Storage:</h2>
+    @foreach (var part in Model.Parts.Where(p => p.Type == "Storage"))
+    {
+        <div class="part-margin" style="border: 5px solid orange; display: inline-block;">
+            @if (Model.AllStorageEnabled && !part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">ADD TO CART</a>
+            }
+            else if (!Model.AllStorageEnabled && part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">REMOVE</a>
+            }
+            else
+            {
+                <br />
+            }
+            <ul>
+                <li>@part.Name</li>
+                <li>@part.Type</li>
+                <li><b>$@part.Price</b></li>
+            </ul>
+        </div>
+    }
+    <br />
+    <h2>Select Video Card:</h2>
+    @foreach (var part in Model.Parts.Where(p => p.Type == "VideoCard"))
+    {
+        <div class="part-margin" style="border: 5px solid purple; display: inline-block;">
+            @if (Model.AllVideoCardEnabled && !part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">ADD TO CART</a>
+            }
+            else if (!Model.AllVideoCardEnabled && part.IsSelected)
+            {
+                <a href="/PCConfiguration/PCConfiguration?Id=@(part.Id)&Name=@(part.Name)&Type=@(part.Type)&Price=@(part.Price)&IsSelected=@(part.IsSelected = !part.IsSelected)">REMOVE</a>
+            }
+            else
+            {
+                <br />
+            }
+            <ul>
+                <li>@part.Name</li>
+                <li>@part.Type</li>
+                <li><b>$@part.Price</b></li>
+            </ul>
+        </div>
+    }
+    <br />
+</div>
+

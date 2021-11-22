@@ -1,0 +1,30 @@
+﻿@using PCConfiguration.Core.Models
+@model IEnumerable<MotherboardViewModel>
+
+@{
+    ViewData["Title"] = "Motherboard";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Motherboard</h1>
+    <br />
+    <br />
+
+    <table class="center">
+        <tr>
+            <th>Name</th>
+            <th>Max Memory</th>
+            <th>Memory Slots</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var motherboard in Model)
+        {
+            <tr>
+                <td>@motherboard.Name</td>
+                <td>@motherboard.MemoryMax</td>
+                <td>@motherboard.MemorySlots</td>
+                <td><b>$@motherboard.Price</b></td>
+            </tr>
+        }
+    </table>
+</div>

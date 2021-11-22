@@ -1,0 +1,28 @@
+﻿@using PCConfiguration.Core.Models
+@model IEnumerable<RAMViewModel>
+
+@{
+    ViewData["Title"] = "RAM";
+}
+
+<div class="text-center">
+    <h1 class="display-4">RAM</h1>
+    <br />
+    <br />
+
+    <table class="center">
+        <tr>
+            <th>Name</th>
+            <th>Memory</th>
+            <th>Price</th>
+        </tr>
+        @foreach (var ram in Model)
+        {
+            <tr>
+                <td>@ram.Name</td>
+                <td>@ram.Memory GB</td>
+                <td><b>$@ram.Price</b></td>
+            </tr>
+        }
+    </table>
+</div>
